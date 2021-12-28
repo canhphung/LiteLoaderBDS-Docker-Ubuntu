@@ -15,8 +15,10 @@ RUN apt update
 RUN adduser --disabled-password --home /home/container container 
 RUN apt install wget software-properties-common unzip apt-transport-https ca-certificates -y
 RUN dpkg --add-architecture i386
-RUN apt install wine32 -y
-RUN apt install wine64 -y
+RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
+RUN apt-key add winehq.key
+RUN add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+RUN apt install winehq-stable
 RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip
 RUN wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip
 RUN wget https://github.com/canhphung/LiteLoaderBDS-Docker-v2/raw/main/vcruntime140_1.zip
