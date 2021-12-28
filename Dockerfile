@@ -15,6 +15,7 @@ RUN apt update
 RUN adduser --disabled-password --home /home/container container 
 RUN apt install wget software-properties-common unzip apt-transport-https ca-certificates -y
 RUN dpkg --add-architecture i386
+RUN apt install wine32 -y
 RUN apt install wine64 -y
 RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip
 RUN wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip
