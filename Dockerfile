@@ -11,16 +11,16 @@ ENV BDSDIR /home/container/bds/
 ENV BDSVER 1.18.2.03
 ENV LLVER 2.0.3
 
-RUN apt update
-RUN adduser --disabled-password --home /home/container container
-RUN apt install wget -y && apt install unzip -y
-RUN dpkg --add-architecture i386
-RUN apt install wine64 wine32 -y
-RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip
-RUN wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip
-RUN wget https://github.com/canhphung/LiteLoaderBDS-Docker-v2/raw/main/vcruntime140_1.zip
-RUN unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR}
-RUN unzip LiteLoader-${LLVER}.zip -d ${BDSDIR}
+RUN apt update && \
+ adduser --disabled-password --home /home/container container && \
+ apt install wget -y && apt install unzip -y && \
+ dpkg --add-architecture i386 && \
+ apt install wine64 wine32 -y && \
+ wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
+ wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
+ wget https://github.com/canhphung/LiteLoaderBDS-Docker-v2/raw/main/vcruntime140_1.zip && \
+ unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR} && \
+ unzip LiteLoader-${LLVER}.zip -d ${BDSDIR}
 
 COPY vcruntime140_1.zip ${BDSDIR}
 RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
