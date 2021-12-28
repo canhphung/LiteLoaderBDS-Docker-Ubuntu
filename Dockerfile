@@ -20,7 +20,7 @@ RUN apt-key add winehq.key
 RUN add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
 RUN apt-add-repository ppa:cybermax-dexter/sdl2-backport
 RUN apt update
-RUN apt-get install --install-recommends winehq-stable
+RUN apt-get install --install-recommends winehq-stable -y
 RUN wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip
 RUN wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip
 RUN wget https://github.com/canhphung/LiteLoaderBDS-Docker-v2/raw/main/vcruntime140_1.zip
