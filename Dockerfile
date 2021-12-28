@@ -11,7 +11,7 @@ ENV BDSDIR /home/container/bds/
 ENV BDSVER 1.18.2.03
 ENV LLVER 2.0.3
 
-RUN apt update && \
+RUN apt update apt-transport-https ca-certificates -y && \
  adduser --disabled-password --home /home/container container && \
  apt install wget -y && \
  apt install software-properties-common -y &&\
