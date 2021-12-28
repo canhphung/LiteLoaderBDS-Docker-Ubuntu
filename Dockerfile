@@ -3,7 +3,7 @@
 # Environment: LiteLoaderBDS
 # Minimum Panel Version: 1.x.x
 # ----------------------------------
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 LABEL Pterodactyl Software, <support@pterodactyl.io>
 
