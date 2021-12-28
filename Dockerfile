@@ -23,9 +23,6 @@ RUN unzip bedrock-server-${BDSVER}.zip -d ${BDSDIR}
 RUN unzip LiteLoader-${LLVER}.zip -d ${BDSDIR}
 
 COPY vcruntime140_1.zip ${BDSDIR}
-RUN unzip vcruntime140_1.zip "vcruntime140_1.dll" && \
-wine SymDB2.exe && \
-rm vcruntime140_1.zip
 
 USER container
 
