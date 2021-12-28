@@ -17,8 +17,9 @@ RUN apt update && \
  apt install software-properties-common -y &&\
  apt install unzip -y && \
  dpkg --add-architecture i386 && \
- apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main' -y && \
- apt install --install-recommends winehq-stable && \
+ wget -nc https://dl.winehq.org/wine-builds/winehq.key && apt-key add winehq.key && \
+ add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main' && \
+ apt update && apt install winehq-stable -y && \
  wget https://minecraft.azureedge.net/bin-win/bedrock-server-${BDSVER}.zip && \
  wget https://github.com/LiteLDev/LiteLoaderBDS/releases/download/${LLVER}/LiteLoader-${LLVER}.zip && \
  wget https://github.com/canhphung/LiteLoaderBDS-Docker-v2/raw/main/vcruntime140_1.zip && \
