@@ -7,7 +7,7 @@ FROM ubuntu:18.04
 
 LABEL Pterodactyl Software, <support@pterodactyl.io>
 
-ENV BDSDIR /home/container/bds/
+ENV BDSDIR /home/container/
 ENV BDSVER 1.18.2.03
 ENV LLVER 2.0.3
 
