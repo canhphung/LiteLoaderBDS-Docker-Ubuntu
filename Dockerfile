@@ -13,7 +13,7 @@ ENV LLVER 2.0.3
 
 RUN apt update
 RUN adduser --disabled-password --home /home/container container 
-RUN apt install wget software-properties-common unzip apt-transport-https ca-certificates libsdl2-2.0-0 libc6 -y
+RUN apt install wget software-properties-common unzip apt-transport-https ca-certificates libsdl2 libc6 -y
 RUN dpkg --add-architecture i386
 RUN wget -nc https://dl.winehq.org/wine-builds/winehq.key
 RUN apt-key add winehq.key
